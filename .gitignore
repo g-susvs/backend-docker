@@ -2,3 +2,4 @@ node_modules
 docker-compose.override.yml
 
 .env
+package-lock.json

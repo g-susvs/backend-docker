@@ -1,18 +1,34 @@
 version: "3.8"
 
 services:
+  #* Servicios
   app:
-    build: .
+    build: ./api/
     environment:
       MONGO_URL: "mongodb://db:27017/db_docker"
     ports:
       - 3000:3000
     volumes:
-      - .:/usr/src
+      - ./api:/usr/src
       - /usr/src/node_modules
     depends_on:
       - db
     command: npx nodemon --legacy-watch index.js
+
+  #* Servicio User
+  app_user:
+    build: ./user/
+    environment:
+      MONGO_URL: "mongodb://db:27017/db_docker"
+    ports:
+      - 3001:3001
+    volumes:
+      - ./user:/usr/src
+      - /usr/src/node_modules
+    depends_on:
+      - db
+    command: npx nodemon --legacy-watch index.js
+
   db:
     image: mongo
     volumes:
