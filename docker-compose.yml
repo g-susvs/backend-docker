@@ -16,7 +16,7 @@ services:
     command: npx nodemon --legacy-watch index.js
 
   #* Servicio User
-  app_user:
+  msuser:
     build: ./user/
     environment:
       MONGO_URL: "mongodb://db:27017/db_docker"
@@ -30,7 +30,7 @@ services:
     command: npx nodemon --legacy-watch index.js
 
   #* Servicio Product
-  app_product:
+  msproduct:
     build: ./product/
     environment:
       MONGO_URL: "mongodb://db:27017/db_docker"
