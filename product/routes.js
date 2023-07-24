@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const { getProducts, createProduct } = require("./controllers");
-const { validateFields } = require("../../middlewares/validate-fields");
 const { body } = require("express-validator");
+const { validateFields } = require("./middlewares/validate-fields");
 
 const router = Router();
 

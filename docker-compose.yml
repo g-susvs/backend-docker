@@ -29,6 +29,20 @@ services:
       - db
     command: npx nodemon --legacy-watch index.js
 
+  #* Servicio Product
+  app_product:
+    build: ./product/
+    environment:
+      MONGO_URL: "mongodb://db:27017/db_docker"
+    ports:
+      - 3002:3002
+    volumes:
+      - ./product:/usr/src
+      - /usr/src/node_modules
+    depends_on:
+      - db
+    command: npx nodemon --legacy-watch index.js
+
   db:
     image: mongo
     volumes:
