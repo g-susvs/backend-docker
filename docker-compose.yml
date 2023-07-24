@@ -43,6 +43,20 @@ services:
       - db
     command: npx nodemon --legacy-watch index.js
 
+  #* Servicio Category
+  mscategory:
+    build: ./category/
+    environment:
+      MONGO_URL: "mongodb://db:27017/db_docker"
+    ports:
+      - 3003:3003
+    volumes:
+      - ./category:/usr/src
+      - /usr/src/node_modules
+    depends_on:
+      - db
+    command: npx nodemon --legacy-watch index.js
+
   db:
     image: mongo
     volumes:
