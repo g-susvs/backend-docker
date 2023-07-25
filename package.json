@@ -1,0 +1,24 @@
+{
+  "name": "microservicios",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "18"
+  },
+  "workspaces": [
+    "api",
+    "user",
+    "product",
+    "category"
+  ],
+  "scripts": {
+    "api": "npm run start --workspace=api",
+    "user": "npm run start --workspace=user",
+    "product": "npm run start --workspace=product",
+    "category": "npm run start --workspace=category"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
