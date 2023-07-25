@@ -1,6 +1,14 @@
 version: "3.8"
 
 services:
+  #* Enrutador
+  nginx:
+    image: nginx
+    ports:
+      - 8080:8080
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+
   #* Servicios
   app:
     build: ./api/
