@@ -12,7 +12,43 @@ services:
       - /usr/src/node_modules
     depends_on:
       - db
-    command: npx nodemon --legacy-watch index.js
+    command: npx nodemon --legacy-watch ./api/index.js
+  ms_user:
+    build: .
+    environment:
+      MONGO_URL: "mongodb://db:27017/db_docker"
+    ports:
+      - 3001:3001
+    volumes:
+      - .:/usr/src
+      - /usr/src/node_modules
+    depends_on:
+      - db
+    command: npx nodemon --legacy-watch ./ms_user/index.js
+  ms_product:
+    build: .
+    environment:
+      MONGO_URL: "mongodb://db:27017/db_docker"
+    ports:
+      - 3002:3002
+    volumes:
+      - .:/usr/src
+      - /usr/src/node_modules
+    depends_on:
+      - db
+    command: npx nodemon --legacy-watch ./ms_product/index.js
+  ms_category:
+    build: .
+    environment:
+      MONGO_URL: "mongodb://db:27017/db_docker"
+    ports:
+      - 3003:3003
+    volumes:
+      - .:/usr/src
+      - /usr/src/node_modules
+    depends_on:
+      - db
+    command: npx nodemon --legacy-watch ./ms_category/index.js
   db:
     image: mongo
     volumes:
