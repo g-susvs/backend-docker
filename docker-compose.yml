@@ -25,13 +25,13 @@ services:
 
   #* Servicio User
   msuser:
-    build: ./user/
+    build: ./ms_user/
     environment:
       MONGO_URL: "mongodb://db:27017/db_docker"
     ports:
       - 3001:3001
     volumes:
-      - ./user:/usr/src
+      - ./ms_user:/usr/src
       - /usr/src/node_modules
     depends_on:
       - db
@@ -39,13 +39,13 @@ services:
 
   #* Servicio Product
   msproduct:
-    build: ./product/
+    build: ./ms_product/
     environment:
       MONGO_URL: "mongodb://db:27017/db_docker"
     ports:
       - 3002:3002
     volumes:
-      - ./product:/usr/src
+      - ./ms_product:/usr/src
       - /usr/src/node_modules
     depends_on:
       - db
@@ -53,13 +53,13 @@ services:
 
   #* Servicio Category
   mscategory:
-    build: ./category/
+    build: ./ms_category/
     environment:
       MONGO_URL: "mongodb://db:27017/db_docker"
     ports:
       - 3003:3003
     volumes:
-      - ./category:/usr/src
+      - ./ms_category:/usr/src
       - /usr/src/node_modules
     depends_on:
       - db
